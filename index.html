@@ -33,31 +33,44 @@
 
 <p>lol_dba is a small package of rake tasks that scan your application models and displays a list of columns that probably should be indexed. Also, it can generate .sql migration scripts. Most of the code come from rails_indexes and migration_sql_generator.</p>
 
-<h3>Installation</h3>
+<h3>Quick example</h3>
 
-<p>Add lol_dba to your Gemfile:</p>
+<p>To use lol_dba in the easiest way possible you have to do two things:</p>
+
+<pre><code>gem install lol_dba
+</code></pre>
+
+<p>Then run one of the following commands...</p>
+
+<p>To display a migration for adding/removing all necessary indexes based on associations:</p>
+
+<pre><code>lol_dba db:find_indexes
+</code></pre>
+
+<p>To generate .sql files for all your migrations inside db/migrate_sql folder:</p>
+
+<pre><code>lol_dba db:migrate_sql
+</code></pre>
+
+<h3>Not-so-quick example</h3>
+
+<p>If you want to use lol_dba with rake, you should do a few more steps:</p>
+
+<p>Add lol_dba to your Gemfile</p>
 
 <pre><code>gem "lol_dba"
 </code></pre>
 
-<p>and install gem</p>
+<p>Run the install command</p>
 
 <pre><code>bundle install
 </code></pre>
 
-<h3>Usage</h3>
-
-<p>Display a migration for adding/removing all necessary indexes based on associations:</p>
+<p>Use it the same way you use other rake commands</p>
 
 <pre><code>rake db:find_indexes
+rake db:migrate_sql
 </code></pre>
-
-<p>Generate .sql files for all your migrations inside db/migrate_sql folder:</p>
-
-<pre><code>rake db:migrate_sql
-</code></pre>
-
-<p>Note that create an index in a big database may take a long time.</p>
 
 <h3>Compatibility</h3>
 
@@ -73,8 +86,9 @@
 
 <h3>Tests</h3>
 
-<pre><code>bundle install
-rake
+<p>To run lol_dba tests, just clone the repo and run:</p>
+
+<pre><code>bundle install &amp;&amp; rake
 </code></pre>
 
 <p>to run the tests.</p>
@@ -92,6 +106,7 @@ rake
 <li><a href="http://jayfields.com/">Jay Fields</a></li>
 <li><a href="http://muness.blogspot.com/">Muness Alrubaie</a></li>
 <li><a href="https://github.com/warpc">Vladimir Sharshov</a></li>
+<li><a href="http://fabiorehm.com/">Fabio Rehm</a></li>
 </ul><h3>License</h3>
 
 <p>Lol DBA is released under the MIT license.</p>
