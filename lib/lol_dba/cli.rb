@@ -30,7 +30,7 @@ module LolDba
     protected
 
     def validate_format!
-      unless self.respond_to?("generate_#{@options[:format]}")
+      unless self.respond_to?("generate_#{@options[:format]}", true)
         $stderr.puts "Unknown format: #{@options[:format]}"
         exit 1
       end
